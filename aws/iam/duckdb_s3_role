@@ -1,0 +1,17 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::041436771778:user/ah792000-s"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                    "sts:ExternalId": "CB95336_SFCRole=4_2n9mMCeeJuGeeLgE3VPF4WcOHNI="
+                }
+            }
+        }
+    ]
+}
