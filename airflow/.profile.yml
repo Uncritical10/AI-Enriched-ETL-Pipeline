@@ -1,0 +1,7 @@
+zomato:
+  target: duckdb
+  outputs:
+    duckdb:
+      type: duckdb
+      path: /opt/airflow/duck/zomato.duckdb
+      threads: 4
