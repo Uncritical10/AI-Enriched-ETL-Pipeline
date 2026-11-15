@@ -1,0 +1,24 @@
+services:
+  airflow:
+    build: .
+    command: standalone
+    ports:
+      - "8080:8080"
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      DUCKDB_PATH: /opt/airflow/duck/zomato.duckdb
+      DATA_DIR: /opt/airflow/duck/csv
+      DUCKDB_TMP: /tmp/duck
+      DUCKDB_MEMORY: 4GB
+      DBT_PROFILES_DIR: /opt/airflow/profiles
+      DBT_TARGET_PATH: /tmp/dbt_target
+      DBT_LOG_PATH: /tmp/dbt_logs
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./profiles:/opt/airflow/profiles
+      - ..:/opt/airflow/dbt_project
+      - C:/ETL-Zomato:/opt/airflow/data:ro
+      - duckdata:/opt/airflow/duck
+
+volumes:
+  duckdata:
